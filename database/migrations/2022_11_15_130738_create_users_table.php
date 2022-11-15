@@ -22,10 +22,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id()->unsigned();
-            $table->char('name', 255);
+            $table->string('name', 255);
             $table->integer('telegram_id');
-            $table->char('first_name', 255);
-            $table->char('last_name', 255);
+            $table->string('first_name', 255);
+            $table->string('last_name', 255);
             $table->integer('chat_id');
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at');

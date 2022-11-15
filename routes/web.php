@@ -14,5 +14,10 @@
 */
 
 $router->get('/', function () use ($router) {
+    // $results = DB::select("SELECT * FROM adverts");
+
+    // foreach ($results as $result) {
+    //     echo $result->title . "\n";
+    // }
     return $router->app->version();
 });

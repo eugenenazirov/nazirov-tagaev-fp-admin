@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
-            $table->id();
-            $table->text('msg_text');
-            $table->dateTime('created_at')->useCurrent();
+        Schema::create('users_messages', function (Blueprint $table) {
+            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('messages_id')->references('id')->on('messages');
         });
+
+        DB::unprepared('ALTER TABLE `users_messages` DROP PRIMARY KEY, ADD PRIMARY KEY (`users_id`, `messages_id`)');
     }
 
     /**
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('users_messages');
     }
 };

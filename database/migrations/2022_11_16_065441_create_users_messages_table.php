@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreign('messages_id')->references('id')->on('messages');
         });
 
+        // Пытаюсь сырым SQL сделать составной первичный ключ. Выдает ошибку
         DB::unprepared('ALTER TABLE users_messages DROP PRIMARY KEY, ADD PRIMARY KEY ( users_id , messages_id )');
     }
 

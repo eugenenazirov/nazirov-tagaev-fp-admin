@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('messages_id')->references('id')->on('messages');
         });
 
-        DB::unprepared('ALTER TABLE `users_messages` DROP PRIMARY KEY, ADD PRIMARY KEY (`users_id`, `messages_id`)');
+        DB::unprepared('ALTER TABLE users_messages DROP PRIMARY KEY, ADD PRIMARY KEY ( users_id , messages_id )');
     }
 
     /**

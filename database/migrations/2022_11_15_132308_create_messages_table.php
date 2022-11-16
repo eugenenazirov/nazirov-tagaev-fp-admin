@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('messages', function (Blueprint $table) {
-            $table->id()->unsigned();
+            $table->id();
             $table->text('msg_text');
             $table->dateTime('created_at')->useCurrent();
         });

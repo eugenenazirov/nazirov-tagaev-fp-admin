@@ -14,9 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users_messages', function (Blueprint $table) {
+            $table->foreignId('users_id');
+            $table->foreignId('messages_id');
             $table->foreign('users_id')->references('id')->on('users');
             $table->foreign('messages_id')->references('id')->on('messages');
-
+            
             $table->primary(['users_id', 'messages_id']);
         });
     }

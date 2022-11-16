@@ -39,12 +39,14 @@ $router->post('/send', function (Request $request) use ($router) {
  */
 function sendMessage($msg_id, $token)
 {
-    // $url = "https://api.telegram.org/{$token}/sendMessage?" . http_build_query([
-    //         'msg_id' => $msg_id,
-    //     ]);
-    $url = "https://webhook.site/ca9c199c-fcfd-4e57-aaae-354f56a52d7f?" . http_build_query([
+    $url = "https://api.telegram.org/{$token}/sendMessage?" . http_build_query([
             'msg_id' => $msg_id,
         ]);
+
+    // Для тестов
+    // $url = "https://webhook.site/ca9c199c-fcfd-4e57-aaae-354f56a52d7f?" . http_build_query([
+    //         'msg_id' => $msg_id,
+    //     ]);
 
     $ch = curl_init();
     $optArray = [

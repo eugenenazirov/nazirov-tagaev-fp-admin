@@ -21,15 +21,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id()->unsigned();
+            $table->id();
             $table->string('name', 255);
             $table->integer('telegram_id');
             $table->string('first_name', 255);
             $table->string('last_name', 255);
             $table->integer('chat_id');
             $table->dateTime('created_at')->useCurrent();
-            $table->dateTime('updated_at');
-            $table->dateTime('deleted_at');
+            $table->dateTime('updated_at')->nullable();
+            $table->dateTime('deleted_at')->nullable();
         });
     }
 

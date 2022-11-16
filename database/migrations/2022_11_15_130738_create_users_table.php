@@ -28,8 +28,8 @@ return new class extends Migration
             $table->string('last_name', 255);
             $table->integer('chat_id');
             $table->dateTime('created_at')->useCurrent();
-            $table->dateTime('updated_at');
-            $table->dateTime('deleted_at');
+            $table->dateTime('updated_at')->nullable();
+            $table->dateTime('deleted_at')->nullable();
         });
     }
 

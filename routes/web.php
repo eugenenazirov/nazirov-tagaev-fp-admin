@@ -2,6 +2,7 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 use Illuminate\Http\Request;
+use App\Http\Controllers;
 /*
 |--------------------------------------------------------------------------
 | Application Routes

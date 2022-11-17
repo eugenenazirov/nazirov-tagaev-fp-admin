@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
+use Illuminate\Http\Request;
 
 class IndexController extends BaseController
 {
@@ -16,11 +17,11 @@ class IndexController extends BaseController
     /**
      * Returns the index view
      * 
-     * @return Response
+     * @return \Illuminate\View\View;
      */
     public function indexView()
     {
-        $messages = DB::select('SELECT * FROM messages');
+        $messages = \DB::select('SELECT * FROM messages');
         return view('index', compact('messages'));
     }
 
@@ -28,14 +29,14 @@ class IndexController extends BaseController
      * Sends a new message.
      *
      * @param  Request  $request
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function sendMessage(Request $request)
     {
         $message = $request->input('message');
-        DB::insert('INSERT INTO messages (msg_text) VALUES (?)', [$message]);
+        \DB::insert('INSERT INTO messages (msg_text) VALUES (?)', [$message]);
 
-        $msg_id = DB::select('SELECT id FROM messages WHERE msg_text = ?', [$message]);
+        $msg_id = \DB::select('SELECT id FROM messages WHERE msg_text = ?', [$message]);
         $bot_token = env('BOT_TOKEN');
 
         self::sendMessageToBot($msg_id, $bot_token);
@@ -67,6 +68,5 @@ class IndexController extends BaseController
         curl_setopt_array($ch, $optArray);
         curl_exec($ch);
         curl_close($ch);
-    }
-    
+    }   
 }

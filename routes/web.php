@@ -14,46 +14,22 @@ use Illuminate\Http\Request;
 */
 
 
-$router->get('/', function () use ($router) {
-    $messages = DB::select('SELECT * FROM messages');
-    return view('index', compact('messages'));
-});
+$router->get('/', 'IndexController@indexView');
+$router->post('/send', 'IndexController@sendMessage');
 
-$router->post('/send', function (Request $request) use ($router) {
-    $message = $request->input('message');
-    DB::insert('INSERT INTO messages (msg_text) VALUES (?)', [$message]);
+// $router->get('/', function () use ($router) {
+//     $messages = DB::select('SELECT * FROM messages');
+//     return view('index', compact('messages'));
+// });
 
-    $msg_id = DB::select('SELECT id FROM messages WHERE msg_text = ?', [$message]);
-    $bot_token = env('BOT_TOKEN');
+// $router->post('/send', function (Request $request) use ($router) {
+//     $message = $request->input('message');
+//     DB::insert('INSERT INTO messages (msg_text) VALUES (?)', [$message]);
 
-    sendMessage($msg_id, $bot_token);
+//     $msg_id = DB::select('SELECT id FROM messages WHERE msg_text = ?', [$message]);
+//     $bot_token = env('BOT_TOKEN');
 
-    return redirect('/');
-});
+//     sendMessage($msg_id, $bot_token);
 
-
-/**
- * @param string $msg_id mailing id for send to telebot
- * @param string $token telebot token for auth
- * @return void
- */
-function sendMessage($msg_id, $token)
-{
-    $url = "https://api.telegram.org/{$token}/sendMessage?" . http_build_query([
-            'msg_id' => $msg_id,
-        ]);
-
-    // Для тестов
-    // $url = "https://webhook.site/ca9c199c-fcfd-4e57-aaae-354f56a52d7f?" . http_build_query([
-    //         'msg_id' => $msg_id,
-    //     ]);
-
-    $ch = curl_init();
-    $optArray = [
-        CURLOPT_URL => $url,
-        CURLOPT_RETURNTRANSFER => true
-    ];
-    curl_setopt_array($ch, $optArray);
-    curl_exec($ch);
-    curl_close($ch);
-}
+//     return redirect('/');
+// });

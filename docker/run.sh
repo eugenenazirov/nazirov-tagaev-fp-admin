@@ -1,2 +1,2 @@
-cd /nazirov-tagaev-fp-admin  
+cd /var/www/nazirov-tagaev-fp-admin
 php artisan migrate:fresh --seed

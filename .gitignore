@@ -12,3 +12,5 @@ Homestead.yaml
 /.idea
 /.vscode
 /.vagrant
+secrets
+mysql

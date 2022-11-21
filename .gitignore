@@ -15,7 +15,4 @@ Homestead.yaml
 mysql
 secrets
 .DS_Store
-<<<<<<< HEAD
-=======
 public/.DS_Store
->>>>>>> 9a69763 (Update .gitignore)

@@ -68,7 +68,7 @@ class IndexController extends BaseController
     public function sendMessageToBot($msg_id, $token)
     {
         try {
-            $response = self::$client->request('POST', "/{$token}/sendMessage", [
+            $response = self::$client->request('POST', "localhost:8000/", [
                 'json' => ['msg_id' => $msg_id]
             ]);
         } catch (GuzzleHttp\Exception\ClientException $e) {

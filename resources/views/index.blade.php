@@ -10,10 +10,15 @@
 <body>
     <section class="main">
         <div class="container main__container">
+            <div class="main__logo">
+                <a href="/"><img class="main__logo-img" src="images/logo.svg" alt="Логотип Mailings Bot"></a>
+            </div>
+
             <div class="main__messages">
                 <ul class="message-items">
                     @foreach ($messages as $message)
-                        <li class="message-item">{{ $message->msg_text }}</li>
+                        <li class="message-item">
+                            <span class="message-item__time">{{ $message->created_at }}</span>{{ $message->msg_text }}</li>
                     @endforeach
                 </ul>
             </div>

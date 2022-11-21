@@ -4,8 +4,33 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Nunito Regular';
+    src: url('../fonts/Nunitoregular.woff');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Nunito Bold';
+    src: url('../fonts/Nunitoregular.woff');
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Nunito ExtraBold';
+    src: url('../fonts/Nunitoregular.woff');
+    font-style: normal;
+    font-weight: 800;
+}
+
+
 body {
-    font-family: sans-serif;
+    font-family: 'Nunito Regular', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal;
 }
 
 .container {
@@ -13,17 +38,37 @@ body {
     margin: 0 auto;
 }
 
+.main {
+    height: 100vh;
+    padding: 80px;
+}
+
 .main__container {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    gap: 20px;
+}
+
+.message-items {
+    list-style: none;
+    color: rgb(69, 69, 69);
+}
+
+.message-item__time {
+    margin-right: 20px;
+    color: rgb(168, 168, 168);
 }
 
 .main__messages {
-    margin: 20px;
+    border: 1px solid rgb(126, 134, 255);
+    border-radius: 20px;
+    padding: 50px;
+    height: 650px;
 }
 
-.main__form {
-    margin: 50px;
+.main__logo-img {
+    width: 200px;
 }

@@ -10,21 +10,27 @@
 <body>
     <section class="main">
         <div class="container main__container">
-            <div class="main__messages">
-                <ul class="message-items">
+            <div class="main__logo">
+                <a href="/"><img class="main__logo-img" src="images/logo.svg" alt="Логотип Mailings Bot"></a>
+            </div>
+
+            <div class="main__messages" id="messages">
+                <ul class="messages__items">
                     @foreach ($messages as $message)
-                        <li class="message-item">{{ $message->msg_text }}</li>
+                        <li class="message-item">
+                            <span class="message-item__time">{{ $message->created_at }}</span>{{ $message->msg_text }}</li>
                     @endforeach
                 </ul>
             </div>
             
             <form action="/send" method="post" class="main__form">
-                <input type="text" class="form__input" name="message">
-                <button type="submit" class="btn form__btn">
+                <textarea id="textInput" type="text" class="form__input" name="message"></textarea>
+                <button id="btn" type="submit" class="btn form__btn">
                     Send Message
                 </button>
             </form>
         </div>
-    </section>   
+    </section>
+    <script src="scripts/main.js"></script>
 </body>
 </html>

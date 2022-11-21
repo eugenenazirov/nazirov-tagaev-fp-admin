@@ -14,3 +14,4 @@ Homestead.yaml
 /.vagrant
 mysql
 secrets
+.DS_Store

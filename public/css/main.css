@@ -68,12 +68,17 @@ body {
     border-radius: 15px;
     padding: 20px 60px;
     height: 400px;
+    width: 600px;
     overflow-y: scroll;
 }
 
 .message-item:last-child {
     color: #467DF2;
     margin-bottom: 60px;
+}
+
+.messages__no-messages {
+    text-align: center;
 }
 
 .main__logo-img {
@@ -99,6 +104,7 @@ body {
     font-family: 'Nunito Regular';
     font-weight: 400;
     font-size: 18px;
+    resize: vertical;
 }
 
 .form__btn {
@@ -114,4 +120,3 @@ body {
     font-size: 16px;
     cursor: pointer;
 }
-

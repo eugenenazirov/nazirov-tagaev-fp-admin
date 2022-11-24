@@ -1,24 +1,34 @@
-# Lumen PHP Framework
+# MailingsBot Admin Panel
+## Kolesa Backend Upgrade 2022. Final Project 
+Команда: Евгений Назиров, Асылхан Тагаев
+Ментор: Еркебулан Абен
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/lumen)](https://packagist.org/packages/laravel/lumen-framework)
+Вы находитесь в репозитории веб-сервиса для создания и отправки рассылок MailingsBot. Это его первый компонент (микросервис): админ панель.
+Разработана на PHP с использованием фреймворка Lumen.
+Финальный проект в рамках курса Kolesa Upgrade для Backend разработчиков.
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
 
-## Official Documentation
+### Как развернуть админку на локальной машине?
+1. Запустите базу данных. Мы используем MySQL в Docker-контейнере на порту 3306.
+2. Перейдите в корневую директорию проекта. Создайте файл конфигурации .env (dotenv) в корневой директории.
+Заполните файл необходимыми данными. Укажите реквизиты для подключения к БД и
+токен бота, полученный от [BotFather](https://t.me/BotFather "Создать своего телеграм-бота").
+В качестве образца используйте .env.example
+    ```
+    cd nazirov-tagaev-fp-bot
+    touch .env
+    ```
+Примените миграции командой:
+    ```
+    make migrations
+    ```
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+3. Запустите бота с помощью команды
 
-## Contributing
+   ```make start-bot```
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+По умолчанию админка стартует на порту 3000.
 
-## Security Vulnerabilities
+4. Перейдите в браузере по адресу http://localhost:3000
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Готово! Теперь запустите [телеграм-бота](https://github.com/eugenenazirov/nazirov-tagaev-fp-bot "MailingsBot") и пользуйтесь сервисом :)
